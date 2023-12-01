@@ -1,10 +1,10 @@
-const socket = new WebSocket('ws://localhost:8080');
+const socket = io('ws://localhost:8080');
 
-socket.onmessage = ({ data }) => {
+socket.on('message', data => {
     const el = document.createElement('li');
     el.innerHTML = data;
     document.querySelector('ul').appendChild(el);
-};
+});
 
 const button = document.querySelector('button');
 const input = document.querySelector('input');
